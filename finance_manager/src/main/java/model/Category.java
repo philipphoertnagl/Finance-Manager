@@ -1,3 +1,5 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,10 +21,13 @@ public class Category {
         return totalAmount;
     }
 
+    public List<SubCategory> getSubCategories() {
+        return subCategories;
+    }
 
     @Override
     public String toString() {
-        return "Category{" +
+        return "model.Category{" +
                 "name='" + name + '\'' +
                 ", subCategories=" + subCategories +
                 '}';

@@ -1,3 +1,5 @@
+package model;
+
 import java.time.LocalDateTime;
 
 public class Transaction {
@@ -26,7 +28,7 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return "Transaction{" +
+        return "model.Transaction{" +
                 "amount=" + amount +
                 ", date=" + date +
                 '}';

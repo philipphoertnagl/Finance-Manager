@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainViewController">
+   <children>
+      <VBox layoutX="355.0" layoutY="266.0" prefHeight="120.0" prefWidth="231.0" style="-fx-background-color: #F5DEB3;">
+         <children>
+            <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="231.0" text="Savings" />
+            <ListView id="savingsListView" fx:id="savingsListView" prefHeight="200.0" prefWidth="200.0" />
+         </children></VBox>
+      <VBox layoutX="14.0" layoutY="126.0" prefHeight="120.0" prefWidth="231.0" style="-fx-background-color: #F5DEB3;">
+         <children>
+            <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="231.0" text="Income" />
+            <ListView id="incomeListView" fx:id="incomeListView" prefHeight="200.0" prefWidth="200.0" />
+         </children></VBox>
+      <VBox layoutX="355.0" layoutY="126.0" prefHeight="120.0" prefWidth="231.0" style="-fx-background-color: #F5DEB3;">
+         <children>
+            <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="231.0" text="Investments" />
+            <ListView id="investmentsListView" fx:id="investmentsListView" prefHeight="200.0" prefWidth="200.0" />
+         </children></VBox>
+      <VBox layoutX="14.0" layoutY="266.0" prefHeight="120.0" prefWidth="231.0" style="-fx-background-color: #F5DEB3;">
+         <children>
+            <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="231.0" text="Costs" />
+            <ListView id="costsListView" fx:id="costsListView" prefHeight="200.0" prefWidth="200.0" />
+         </children></VBox>
+   </children>
+</AnchorPane>

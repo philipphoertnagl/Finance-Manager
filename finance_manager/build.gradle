@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.10'
 }
 
 group = 'FinanceMGMT'
@@ -9,11 +11,31 @@ repositories {
     mavenCentral()
 }
 
+
+javafx {
+    version = '17.0.6'
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
 dependencies {
+    //JUnit
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+
 }
 
 test {
     useJUnitPlatform()
 }
+
+
+application {
+    mainModule.set('view') // Update this to your actual module name, if you're using modules
+    mainClass.set('view.MainApp') // Set this to the fully qualified name of your main class
+}
+
+
+java {
+    modularity.inferModulePath.set(false)
+}
+

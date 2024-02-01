@@ -1,3 +1,5 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,10 +24,7 @@ public class SubCategory {
 
     @Override
     public String toString() {
-        return "SubCategory{" +
-                "subName='" + subName + '\'' +
-                ", amount=" + amount +
-                ", transactions=" + transactions +
-                '}';
+        // Customize this method to output what you want to show in the ListView
+        return subName + ": $" + getAmount();
     }
 }
