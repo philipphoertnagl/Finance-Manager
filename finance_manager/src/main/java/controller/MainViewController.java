@@ -30,20 +30,32 @@ public class MainViewController {
 
     // Initialize with data
     public void initialize() {
-        // Assuming you have a method getSubCategories() that returns a list of subcategory names
+        dataModel.loadData();
         savingsListView.setItems(FXCollections.observableArrayList(
-                dataModel.getInvestments().getSubCategories().stream()
-                        .map(model.SubCategory::toString)
+                dataModel.getSavings().getSubCategories().stream()
+                        .map(SubCategory::toString)
                         .collect(Collectors.toList())
         ));
-        /*incomeListView.setItems(FXCollections.observableArrayList(getSubCategories("Income")));
-        investmentsListView.setItems(FXCollections.observableArrayList(getSubCategories("Investments")));
-        costsListView.setItems(FXCollections.observableArrayList(getSubCategories("Costs")));*/
+
+        incomeListView.setItems(FXCollections.observableArrayList(
+                dataModel.getIncome().getSubCategories().stream()
+                        .map(SubCategory::toString)
+                        .collect(Collectors.toList())
+        ));
+
+        investmentsListView.setItems(FXCollections.observableArrayList(
+                dataModel.getInvestments().getSubCategories().stream()
+                        .map(SubCategory::toString)
+                        .collect(Collectors.toList())
+        ));
+
+        costsListView.setItems(FXCollections.observableArrayList(
+                dataModel.getCosts().getSubCategories().stream()
+                        .map(SubCategory::toString)
+                        .collect(Collectors.toList())
+        ));
     }
 
-    private ObservableList<String> getSubCategories(String category) {
 
-        return FXCollections.observableArrayList("Savings", "Income", "Investments", "lklk");
-    }
 
 }
