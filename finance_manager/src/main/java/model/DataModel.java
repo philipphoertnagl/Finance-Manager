@@ -24,30 +24,7 @@ public class DataModel {
         investments = new Category("Investments", Arrays.asList(immobilien, gold, fonds, crypto));
 
 
-        //Income subcategories
-        SubCategory workA = new SubCategory("iT");
-        SubCategory workB = new SubCategory("LP");
-        SubCategory sonstiges = new SubCategory("Sonstiges");
-
-        workA.addTransaction(new Transaction(600));
-        workB.addTransaction(new Transaction(900));
-
-        income = new Category("Income", Arrays.asList(workA, workB, sonstiges));
-
-
-        //Fixcosts subcategories
-        SubCategory miete = new SubCategory("Miete");
-        SubCategory energie = new SubCategory("Energie");
-        SubCategory abos = new SubCategory("Abos");
-
-        miete.addTransaction(new Transaction(800));
-        energie.addTransaction(new Transaction(150));
-        abos.addTransaction(new Transaction(32));
-
-        costs = new Category("Fixcosts per year", Arrays.asList(miete, energie, abos));
-
-
-        //Savings subcategories
+        //SAVINGS subcategories
         SubCategory bankA = new SubCategory("Dad");
         SubCategory bankB = new SubCategory("Ra");
         SubCategory bankC = new SubCategory("Ng");
@@ -59,6 +36,33 @@ public class DataModel {
         cash.addTransaction(new Transaction(7330));
 
         savings = new Category("Savings", Arrays.asList(bankA, bankB, bankC, cash));
+
+
+
+        //INCOME subcategories
+        SubCategory workA = new SubCategory("iT");
+        SubCategory workB = new SubCategory("LP");
+        SubCategory sonstiges = new SubCategory("Sonstiges");
+
+        workA.addTransaction(new Transaction(600));
+        workB.addTransaction(new Transaction(900));
+
+        income = new Category("Income", Arrays.asList(workA, workB, sonstiges));
+
+
+        //FIXCOSTS subcategories
+        SubCategory miete = new SubCategory("Miete");
+        SubCategory energie = new SubCategory("Energie");
+        SubCategory abos = new SubCategory("Abos");
+
+        miete.addTransaction(new Transaction(800));
+        energie.addTransaction(new Transaction(150));
+        abos.addTransaction(new Transaction(32));
+
+        costs = new Category("Fixcosts per year", Arrays.asList(miete, energie, abos));
+
+
+
 
     }
 

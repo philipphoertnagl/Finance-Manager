@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+
+<AnchorPane prefHeight="536.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CategoryEditController">
+   <children>
+      <MenuBar fx:id="menuBarCategory" layoutX="-14.0" layoutY="1.0" prefHeight="27.0" prefWidth="801.0">
+        <menus>
+          <Menu fx:id="menuMainMenu" mnemonicParsing="false" text="Main Menu" />
+          <Menu fx:id="menuSave" mnemonicParsing="false" text="Save" />
+            <Menu fx:id="menuAdd" mnemonicParsing="false" text="Add" />
+            <Menu fx:id="menuDelete" mnemonicParsing="false" text="Delete" />
+        </menus>
+      </MenuBar>
+      <Label fx:id="labelCategoryName" layoutX="14.0" layoutY="28.0" prefHeight="54.0" prefWidth="323.0" text="Category_Name" textFill="#8897f8">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tableviewCategory" layoutX="14.0" layoutY="74.0" prefHeight="450.0" prefWidth="762.0">
+        <columns>
+            <TableColumn fx:id="tablecolumnSubcategory" prefWidth="493.0" text="Subcategory">
+                <cellValueFactory>
+                    <PropertyValueFactory property="subName" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="tablecolumnAmount" prefWidth="268.0" text="Amount">
+                <cellValueFactory>
+                    <PropertyValueFactory property="amount" />
+                </cellValueFactory>
+            </TableColumn>
+
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

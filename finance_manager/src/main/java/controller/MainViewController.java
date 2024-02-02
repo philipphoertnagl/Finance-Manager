@@ -53,28 +53,28 @@ public class MainViewController {
 
 
 
-        checkboxSavings.setText("Total: " + dataModel.getSavings().getTotalAmount());
+        checkboxSavings.setText("Savings: " + dataModel.getSavings().getTotalAmount());
         savingsListView.setItems(FXCollections.observableArrayList(
                 dataModel.getSavings().getSubCategories().stream()
                         .map(SubCategory::toString)
                         .collect(Collectors.toList())
         ));
 
-        checkboxIncome.setText("Total: " + dataModel.getIncome().getTotalAmount());
+        checkboxIncome.setText("Income: " + dataModel.getIncome().getTotalAmount());
         incomeListView.setItems(FXCollections.observableArrayList(
                 dataModel.getIncome().getSubCategories().stream()
                         .map(SubCategory::toString)
                         .collect(Collectors.toList())
         ));
 
-        checkboxInvestments.setText("Total: " + dataModel.getInvestments().getTotalAmount());
+        checkboxInvestments.setText("Investments: " + dataModel.getInvestments().getTotalAmount());
         investmentsListView.setItems(FXCollections.observableArrayList(
                 dataModel.getInvestments().getSubCategories().stream()
                         .map(SubCategory::toString)
                         .collect(Collectors.toList())
         ));
 
-        checkboxCosts.setText("Total: " + dataModel.getCosts().getTotalAmount());
+        checkboxCosts.setText("Fixcosts: " + -dataModel.getCosts().getTotalAmount());
         costsListView.setItems(FXCollections.observableArrayList(
                 dataModel.getCosts().getSubCategories().stream()
                         .map(SubCategory::toString)
@@ -95,7 +95,7 @@ public class MainViewController {
             total += dataModel.getInvestments().getTotalAmount();
         }
         if (checkboxCosts.isSelected()) {
-            total += dataModel.getCosts().getTotalAmount();
+            total -= dataModel.getCosts().getTotalAmount();
         }
 
         labelSumSelected.setText(String.format("Sum of selected categories: $%.2f", total));
