@@ -7,6 +7,7 @@ import model.SubCategory;
 
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.Label;
 
 import java.util.List;
 
@@ -16,9 +17,12 @@ public class CategoryEditController {
 
     @FXML
     private TableView<SubCategory> tableviewCategory;
+    @FXML
+    private Label labelCategoryName;
 
     public void initialize() {
         dataModel.loadData();
+        labelCategoryName.setText(dataModel.getInvestments().getName()); //TODO: change later to autmatic category_name setting
         tableviewCategory.setEditable(true);
 
 

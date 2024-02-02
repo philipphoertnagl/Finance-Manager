@@ -25,6 +25,10 @@ public class Category {
         return subCategories;
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         return "model.Category{" +
