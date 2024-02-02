@@ -1,3 +1,5 @@
+package model;
+
 import java.time.LocalDateTime;
 
 public class Transaction {
@@ -18,7 +20,7 @@ public class Transaction {
 
     public void editAmount(double amount) {
         this.amount += amount;
-        System.out.println("We added " + amount + " to the account at " + date);
+        System.out.println("We transferred " + amount + " to the account at " + date);
 
     }
 
@@ -26,7 +28,7 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return "Transaction{" +
+        return "model.Transaction{" +
                 "amount=" + amount +
                 ", date=" + date +
                 '}';

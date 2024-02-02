@@ -1,3 +1,6 @@
+import model.Category;
+import model.SubCategory;
+import model.Transaction;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.Arrays;

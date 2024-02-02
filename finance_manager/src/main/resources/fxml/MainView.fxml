@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="700.0" maxWidth="900.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainViewController">
+   <children>
+      <VBox layoutX="311.0" layoutY="266.0" prefHeight="120.0" prefWidth="275.0" style="-fx-background-color: #F5DEB3;">
+         <children>
+            <CheckBox fx:id="checkboxSavings" onAction="#updateSelectedTotal" mnemonicParsing="false" prefHeight="18.0" prefWidth="231.0" text="Savings">
+               <graphic>
+                  <Button mnemonicParsing="false" text="edit" />
+               </graphic></CheckBox>
+            <ListView id="savingsListView" fx:id="savingsListView" prefHeight="96.0" prefWidth="268.0" />
+         </children></VBox>
+      <VBox layoutX="14.0" layoutY="126.0" prefHeight="120.0" prefWidth="275.0" style="-fx-background-color: #F5DEB3;">
+         <children>
+            <CheckBox fx:id="checkboxIncome" onAction="#updateSelectedTotal" mnemonicParsing="false" prefHeight="18.0" prefWidth="231.0" text="Income">
+               <graphic>
+                  <Button mnemonicParsing="false" text="edit" />
+               </graphic></CheckBox>
+            <ListView id="incomeListView" fx:id="incomeListView" prefHeight="200.0" prefWidth="200.0" />
+         </children></VBox>
+      <VBox layoutX="311.0" layoutY="126.0" prefHeight="120.0" prefWidth="275.0" style="-fx-background-color: #F5DEB3;">
+         <children>
+            <CheckBox fx:id="checkboxInvestments" onAction="#updateSelectedTotal" mnemonicParsing="false" prefHeight="18.0" prefWidth="231.0" text="Investments">
+               <graphic>
+                  <Button mnemonicParsing="false" text="edit" />
+               </graphic></CheckBox>
+            <ListView id="investmentsListView" fx:id="investmentsListView" prefHeight="102.0" prefWidth="275.0" />
+         </children></VBox>
+      <VBox layoutX="14.0" layoutY="266.0" prefHeight="120.0" prefWidth="275.0" style="-fx-background-color: #F5DEB3;">
+         <children>
+            <CheckBox fx:id="checkboxCosts" onAction="#updateSelectedTotal" mnemonicParsing="false" prefHeight="18.0" prefWidth="231.0" text="Costs">
+               <graphic>
+                  <Button mnemonicParsing="false" text="edit" />
+               </graphic></CheckBox>
+            <ListView id="costsListView" fx:id="costsListView" prefHeight="200.0" prefWidth="200.0" />
+         </children></VBox>
+      <Label fx:id="labelSumInvestSaving" layoutX="14.0" layoutY="14.0" prefHeight="24.0" prefWidth="419.0" text="Sum of Investments &amp; Savings:" />
+      <Label fx:id="labelIncomeCosts" layoutX="14.0" layoutY="38.0" prefHeight="24.0" prefWidth="494.0" text="Income - Costs:" />
+      <Label fx:id="labelSumSelected" layoutX="14.0" layoutY="62.0" prefHeight="24.0" prefWidth="458.0" text="Sum of all selected categories:" />
+   </children>
+</AnchorPane>
