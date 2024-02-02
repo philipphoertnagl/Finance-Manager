@@ -7,7 +7,7 @@
    <children>
       <VBox layoutX="311.0" layoutY="266.0" prefHeight="120.0" prefWidth="275.0" style="-fx-background-color: #F5DEB3;">
          <children>
-            <CheckBox fx:id="labelSavings" mnemonicParsing="false" prefHeight="18.0" prefWidth="231.0" text="Savings">
+            <CheckBox fx:id="checkboxSavings" onAction="#updateSelectedTotal" mnemonicParsing="false" prefHeight="18.0" prefWidth="231.0" text="Savings">
                <graphic>
                   <Button mnemonicParsing="false" text="edit" />
                </graphic></CheckBox>
@@ -15,7 +15,7 @@
          </children></VBox>
       <VBox layoutX="14.0" layoutY="126.0" prefHeight="120.0" prefWidth="275.0" style="-fx-background-color: #F5DEB3;">
          <children>
-            <CheckBox fx:id="labelIncome" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="18.0" prefWidth="231.0" text="Income">
+            <CheckBox fx:id="checkboxIncome" onAction="#updateSelectedTotal" mnemonicParsing="false" prefHeight="18.0" prefWidth="231.0" text="Income">
                <graphic>
                   <Button mnemonicParsing="false" text="edit" />
                </graphic></CheckBox>
@@ -23,7 +23,7 @@
          </children></VBox>
       <VBox layoutX="311.0" layoutY="126.0" prefHeight="120.0" prefWidth="275.0" style="-fx-background-color: #F5DEB3;">
          <children>
-            <CheckBox fx:id="labelInvestments" mnemonicParsing="false" prefHeight="18.0" prefWidth="231.0" text="Investments">
+            <CheckBox fx:id="checkboxInvestments" onAction="#updateSelectedTotal" mnemonicParsing="false" prefHeight="18.0" prefWidth="231.0" text="Investments">
                <graphic>
                   <Button mnemonicParsing="false" text="edit" />
                </graphic></CheckBox>
@@ -31,7 +31,7 @@
          </children></VBox>
       <VBox layoutX="14.0" layoutY="266.0" prefHeight="120.0" prefWidth="275.0" style="-fx-background-color: #F5DEB3;">
          <children>
-            <CheckBox fx:id="labelCosts" mnemonicParsing="false" prefHeight="18.0" prefWidth="231.0" text="Costs">
+            <CheckBox fx:id="checkboxCosts" onAction="#updateSelectedTotal" mnemonicParsing="false" prefHeight="18.0" prefWidth="231.0" text="Costs">
                <graphic>
                   <Button mnemonicParsing="false" text="edit" />
                </graphic></CheckBox>

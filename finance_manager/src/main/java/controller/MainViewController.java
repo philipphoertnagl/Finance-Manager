@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.CheckBox;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 import model.DataModel;
 import model.SubCategory;
@@ -26,13 +25,13 @@ public class MainViewController {
 
     //Checkbox objects
     @FXML
-    private CheckBox labelSavings;
+    private CheckBox checkboxSavings;
     @FXML
-    private CheckBox labelIncome;
+    private CheckBox checkboxIncome;
     @FXML
-    private CheckBox labelInvestments;
+    private CheckBox checkboxInvestments;
     @FXML
-    private CheckBox labelCosts;
+    private CheckBox checkboxCosts;
 
     //Total Sum Labels Top:
     @FXML
@@ -54,37 +53,52 @@ public class MainViewController {
 
 
 
-        labelSavings.setText("Total: " + dataModel.getSavings().getTotalAmount());
+        checkboxSavings.setText("Total: " + dataModel.getSavings().getTotalAmount());
         savingsListView.setItems(FXCollections.observableArrayList(
                 dataModel.getSavings().getSubCategories().stream()
                         .map(SubCategory::toString)
                         .collect(Collectors.toList())
         ));
 
-        labelIncome.setText("Total: " + dataModel.getIncome().getTotalAmount());
+        checkboxIncome.setText("Total: " + dataModel.getIncome().getTotalAmount());
         incomeListView.setItems(FXCollections.observableArrayList(
                 dataModel.getIncome().getSubCategories().stream()
                         .map(SubCategory::toString)
                         .collect(Collectors.toList())
         ));
 
-        labelInvestments.setText("Total: " + dataModel.getInvestments().getTotalAmount());
+        checkboxInvestments.setText("Total: " + dataModel.getInvestments().getTotalAmount());
         investmentsListView.setItems(FXCollections.observableArrayList(
                 dataModel.getInvestments().getSubCategories().stream()
                         .map(SubCategory::toString)
                         .collect(Collectors.toList())
         ));
 
-        labelCosts.setText("Total: " + dataModel.getCosts().getTotalAmount());
+        checkboxCosts.setText("Total: " + dataModel.getCosts().getTotalAmount());
         costsListView.setItems(FXCollections.observableArrayList(
                 dataModel.getCosts().getSubCategories().stream()
                         .map(SubCategory::toString)
                         .collect(Collectors.toList())
         ));
 
+    }
 
+    public void updateSelectedTotal() {
+        double total = 0;
+        if (checkboxSavings.isSelected()) {
+            total += dataModel.getSavings().getTotalAmount();
+        }
+        if (checkboxIncome.isSelected()) {
+            total += dataModel.getIncome().getTotalAmount();
+        }
+        if (checkboxInvestments.isSelected()) {
+            total += dataModel.getInvestments().getTotalAmount();
+        }
+        if (checkboxCosts.isSelected()) {
+            total += dataModel.getCosts().getTotalAmount();
+        }
 
-
+        labelSumSelected.setText(String.format("Sum of selected categories: $%.2f", total));
     }
 
 }
