@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
-
 
 <AnchorPane prefHeight="536.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CategoryEditController">
    <children>
-      <MenuBar fx:id="menuBarCategory" layoutX="-14.0" layoutY="1.0" prefHeight="27.0" prefWidth="801.0">
-        <menus>
-          <Menu fx:id="menuMainMenu" mnemonicParsing="false" text="Main Menu" />
-          <Menu fx:id="menuSave" mnemonicParsing="false" text="Save" />
-            <Menu fx:id="menuAdd" mnemonicParsing="false" text="Add" />
-            <Menu fx:id="menuDelete" mnemonicParsing="false" text="Delete" />
-        </menus>
-      </MenuBar>
-      <Label fx:id="labelCategoryName" layoutX="14.0" layoutY="28.0" prefHeight="54.0" prefWidth="323.0" text="Category_Name" textFill="#8897f8">
+       <ToolBar fx:id="toolBar" layoutX="0" layoutY="0" prefHeight="40.0" prefWidth="800.0">
+           <items>
+               <Button fx:id="buttonAdd" onAction="#handleAddButtonAction" text="Add" />
+               <Button fx:id="buttonDelete" onAction="#handleDeleteButtonAction" text="Delete" />
+               <Button fx:id="buttonSave" text="Save" />
+           </items>
+       </ToolBar>
+       <ComboBox fx:id="categoryComboBox" layoutX="14.0" layoutY="43.0" onAction="#onCategoryChanged" prefHeight="24.0" prefWidth="171.0" />
+       <Label fx:id="labelCategoryName" layoutX="194.0" layoutY="28.0" prefHeight="54.0" prefWidth="323.0" text="Category_Name" textFill="#8897f8">
          <font>
             <Font size="25.0" />
          </font>

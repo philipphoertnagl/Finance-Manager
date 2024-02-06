@@ -39,6 +39,15 @@ public class SubCategory {
         return subName;
     }
 
+    public void setSubName(String subName) {
+        this.subName.set(subName);
+    }
+
+    public void setAmount(Double amount) {
+        this.amount.set(amount);
+    }
+
+
     @Override
     public String toString() {
         // Customize this method to output what you want to show in the ListView
