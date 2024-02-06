@@ -1,6 +1,7 @@
 package controller;
 
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import model.DataModel;
 import model.SubCategory;
@@ -33,6 +34,17 @@ public class CategoryEditController {
 
 
     }
+
+    @FXML
+    public void handleAddButtonAction(ActionEvent event) {
+        SubCategory newSubCategory = new SubCategory(""); // Create a new subcategory with an empty name
+        tableviewCategory.getItems().add(newSubCategory); // Add it to the TableView
+        int newRowIndex = tableviewCategory.getItems().size() - 1;
+        tableviewCategory.getSelectionModel().select(newRowIndex); // Select the new row
+        tableviewCategory.scrollTo(newSubCategory); // Scroll to the new row if necessary
+       // tableviewCategory.edit(newRowIndex, tablecolumnSubcategory); // Optional: directly start editing the name
+    }
+
 
 
 
