@@ -14,7 +14,8 @@
                <Button fx:id="buttonSave" text="Save" />
            </items>
        </ToolBar>
-      <Label fx:id="labelCategoryName" layoutX="14.0" layoutY="28.0" prefHeight="54.0" prefWidth="323.0" text="Category_Name" textFill="#8897f8">
+       <ComboBox fx:id="categoryComboBox" layoutX="14.0" layoutY="43.0" onAction="#onCategoryChanged" prefHeight="24.0" prefWidth="171.0" />
+       <Label fx:id="labelCategoryName" layoutX="194.0" layoutY="28.0" prefHeight="54.0" prefWidth="323.0" text="Category_Name" textFill="#8897f8">
          <font>
             <Font size="25.0" />
          </font>

@@ -3,9 +3,11 @@ package controller;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.NumberStringConverter;
+import model.Category;
 import model.DataModel;
 import model.SubCategory;
 
@@ -27,6 +29,9 @@ public class CategoryEditController {
     private TableColumn<SubCategory, Number> tablecolumnAmount;
     @FXML
     private Label labelCategoryName;
+    @FXML
+    private ComboBox<String> categoryComboBox;
+    private Category currentCategory;
 
     public void initialize() {
         dataModel.loadData();
@@ -37,8 +42,15 @@ public class CategoryEditController {
         List<SubCategory> existingSubcategories = dataModel.getInvestments().getSubCategories();
         tableviewCategory.setItems(FXCollections.observableArrayList(existingSubcategories));
 
+        categoryComboBox.getItems().addAll("Investments", "Income", "Costs", "Savings");
+
+        // Pre-select the first category or set to a default
+        categoryComboBox.getSelectionModel().selectFirst();
+        updateCurrentCategory();
+
         setupTableColumns();
     }
+
 
     private void setupTableColumns() {
         // Set cell factories for editable columns
@@ -79,7 +91,42 @@ public class CategoryEditController {
          else {
 
             System.out.println(("No subcategory selected."));
+         }
+     }
+
+    @FXML
+    private void onCategoryChanged(ActionEvent event) {
+        updateCurrentCategory();
     }
+
+    private void updateCurrentCategory() {
+        String selectedCategory = categoryComboBox.getValue();
+        if (selectedCategory != null) {
+            switch (selectedCategory) {
+                case "Investments":
+                    currentCategory = dataModel.getInvestments();
+                    break;
+                case "Income":
+                    currentCategory = dataModel.getIncome();
+                    break;
+                case "Costs":
+                    currentCategory = dataModel.getCosts();
+                    break;
+                case "Savings":
+                    currentCategory = dataModel.getSavings();
+                    break;
+            }
+        }
+
+        // Load subcategories for the selected category into the TableView
+        loadSubcategories();
+    }
+
+    private void loadSubcategories() {
+        if (currentCategory != null) {
+            List<SubCategory> subcategories = currentCategory.getSubCategories();
+            tableviewCategory.setItems(FXCollections.observableArrayList(subcategories));
+        }
     }
 
 
