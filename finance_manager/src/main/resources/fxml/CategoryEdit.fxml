@@ -10,9 +10,8 @@
        <ToolBar fx:id="toolBar" layoutX="0" layoutY="0" prefHeight="40.0" prefWidth="800.0">
            <items>
                <Button fx:id="buttonAdd" onAction="#handleAddButtonAction" text="Add" />
-               <Button fx:id="buttonEdit"  text="Edit" />
-               <Button fx:id="buttonDelete"  text="Delete" />
-               <Button fx:id="buttonSave"  text="Save" />
+               <Button fx:id="buttonDelete" text="Delete" />
+               <Button fx:id="buttonSave" text="Save" />
            </items>
        </ToolBar>
       <Label fx:id="labelCategoryName" layoutX="14.0" layoutY="28.0" prefHeight="54.0" prefWidth="323.0" text="Category_Name" textFill="#8897f8">
