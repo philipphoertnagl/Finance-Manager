@@ -8,6 +8,30 @@ public class DataModel {
     private Category costs;
     private Category savings;
 
+    public void addSubCategory(Category category, SubCategory subCategory) {
+        if (category == investments) {
+            investments.addSubCategory(subCategory);
+        } else if (category == income) {
+            income.addSubCategory(subCategory);
+        } else if (category == costs) {
+            costs.addSubCategory(subCategory);
+        } else if (category == savings) {
+            savings.addSubCategory(subCategory);
+        }
+    }
+
+    public void removeSubCategory(Category category, SubCategory subCategory) { //TODO: refactoring to a map
+        if (category == investments) {
+            investments.removeSubCategory(subCategory);
+        } else if (category == income) {
+            income.removeSubCategory(subCategory);
+        } else if (category == costs) {
+            costs.removeSubCategory(subCategory);
+        } else if (category == savings) {
+            savings.removeSubCategory(subCategory);
+        }
+    }
+
 
     public void loadData() {
         //Investments subcateogires

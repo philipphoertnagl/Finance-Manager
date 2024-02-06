@@ -10,7 +10,7 @@
        <ToolBar fx:id="toolBar" layoutX="0" layoutY="0" prefHeight="40.0" prefWidth="800.0">
            <items>
                <Button fx:id="buttonAdd" onAction="#handleAddButtonAction" text="Add" />
-               <Button fx:id="buttonDelete" text="Delete" />
+               <Button fx:id="buttonDelete" onAction="#handleDeleteButtonAction" text="Delete" />
                <Button fx:id="buttonSave" text="Save" />
            </items>
        </ToolBar>

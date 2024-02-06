@@ -58,16 +58,29 @@ public class CategoryEditController {
     }
 
     @FXML
-    public void handleAddButtonAction(ActionEvent event) {
+    private void handleAddButtonAction(ActionEvent event) {
         SubCategory newSubCategory = new SubCategory(""); // Create a new subcategory with an empty name
         tableviewCategory.getItems().add(newSubCategory); // Add it to the TableView
+        dataModel.addSubCategory(currentCategory, newSubCategory);
+
         int newRowIndex = tableviewCategory.getItems().size() - 1;
         tableviewCategory.getSelectionModel().select(newRowIndex); // Select the new row
         tableviewCategory.scrollTo(newSubCategory); // Scroll to the new row if necessary
         tableviewCategory.edit(newRowIndex, tablecolumnSubcategory); // Optional: directly start editing the name
     }
 
+    @FXML
+    private void handleDeleteButtonAction(ActionEvent event) {
+        SubCategory selectedRow = tableviewCategory.getSelectionModel().getSelectedItem();
+        if (selectedRow != null) {
+            tableviewCategory.getItems().remove(selectedRow);
+            dataModel.removeSubCategory(currentCategory, selectedRow);
+        }
+         else {
 
+            System.out.println(("No subcategory selected."));
+    }
+    }
 
 
 }
