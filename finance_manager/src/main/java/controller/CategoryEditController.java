@@ -14,12 +14,14 @@ import model.SubCategory;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.Label;
+import service.DataStorage;
 
 import java.util.List;
 
 
 public class CategoryEditController {
     private DataModel dataModel = new DataModel();
+    private DataStorage dataStorage = new DataStorage();
 
     @FXML
     private TableView<SubCategory> tableviewCategory;
@@ -34,7 +36,13 @@ public class CategoryEditController {
     private Category currentCategory;
 
     public void initialize() {
-        dataModel.loadData();
+        String filePath = "src/main/java/service/DataModel.json"; // This could also be dynamically determined
+        dataModel = dataStorage.loadDataModel(filePath);
+        if (dataModel == null) {
+            dataModel = new DataModel(); // Fallback strategy if loading fails
+        }
+
+        //dataModel.loadData();
         labelCategoryName.setText(dataModel.getInvestments().getName()); //TODO: change later to autmatic category_name setting
         tableviewCategory.setEditable(true);
 
@@ -93,6 +101,13 @@ public class CategoryEditController {
             System.out.println(("No subcategory selected."));
          }
      }
+
+    @FXML
+    private void handleSaveAction(ActionEvent event) {
+        String filePath = "src/main/java/service/DataModel.json"; // Define how you get or set this path
+        dataStorage.saveDataModel(dataModel, filePath);
+    }
+
 
     @FXML
     private void onCategoryChanged(ActionEvent event) {
