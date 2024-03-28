@@ -13,6 +13,9 @@ public class Transaction {
         this.amount = amount;
         this.date = LocalDateTime.now();
     }
+    public Transaction() {
+
+    }
 
     public double getAmount() {
         return amount;

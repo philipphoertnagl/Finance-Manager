@@ -18,6 +18,13 @@ public class SubCategory {
         this.transactions = new ArrayList<>();
     }
 
+    public SubCategory() {
+        // Initialize all properties here to ensure they are not null
+        this.subName = new SimpleStringProperty();
+        this.amount = new SimpleDoubleProperty(0);
+        this.transactions = new ArrayList<>();
+    }
+
     public void addTransaction(Transaction transaction) {
         transactions.add(transaction);
         this.amount.set(this.amount.get() + transaction.getAmount());
