@@ -14,12 +14,16 @@ import model.SubCategory;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.Label;
+import service.DataStorage;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 
 public class CategoryEditController {
     private DataModel dataModel = new DataModel();
+    private DataStorage dataStorage = new DataStorage();
 
     @FXML
     private TableView<SubCategory> tableviewCategory;
@@ -34,22 +38,47 @@ public class CategoryEditController {
     private Category currentCategory;
 
     public void initialize() {
+        String filePath = "src/main/java/service/DataModel.json"; // This could also be dynamically determined
+        File file = new File(filePath);
+
+        if(file.exists() && file.length() > 0) {
+            // Attempt to load existing data from the file
+            try {
+                dataModel = dataStorage.loadDataModel(filePath);
+                if (dataModel == null) {
+                    throw new IOException("Failed to load data model from file.");
+                }
+                System.out.println("DataModel loaded from file.");
+            } catch (IOException e) {
+                e.printStackTrace();
+                initializeDataModelWithHardcodedData();
+            }
+        } else {
+            // File doesn't exist or is empty, use hardcoded data
+            initializeDataModelWithHardcodedData();
+        }
+
+        setupInitialView();
+    }
+
+    private void initializeDataModelWithHardcodedData() {
+        dataModel = new DataModel();
         dataModel.loadData();
-        labelCategoryName.setText(dataModel.getInvestments().getName()); //TODO: change later to autmatic category_name setting
+        System.out.println("DataModel initialized with hardcoded data.");
+    }
+
+    private void setupInitialView() {
+        // Common setup steps that need to be executed regardless of data loading method
+        labelCategoryName.setText(dataModel.getInvestments().getName());
         tableviewCategory.setEditable(true);
-
-
         List<SubCategory> existingSubcategories = dataModel.getInvestments().getSubCategories();
         tableviewCategory.setItems(FXCollections.observableArrayList(existingSubcategories));
-
         categoryComboBox.getItems().addAll("Investments", "Income", "Costs", "Savings");
-
-        // Pre-select the first category or set to a default
         categoryComboBox.getSelectionModel().selectFirst();
         updateCurrentCategory();
-
         setupTableColumns();
     }
+
 
 
     private void setupTableColumns() {
@@ -93,6 +122,13 @@ public class CategoryEditController {
             System.out.println(("No subcategory selected."));
          }
      }
+
+    @FXML
+    private void handleSaveAction(ActionEvent event) {
+        String filePath = "src/main/java/service/DataModel.json"; // Define how you get or set this path
+        dataStorage.saveDataModel(dataModel, filePath);
+    }
+
 
     @FXML
     private void onCategoryChanged(ActionEvent event) {

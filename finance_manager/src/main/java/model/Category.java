@@ -1,5 +1,9 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,11 +12,13 @@ public class Category {
     protected List<SubCategory> subCategories;
 
 
-    public Category(String name, List<SubCategory> subCategories) {
+    @JsonCreator
+    public Category(@JsonProperty("name") String name, @JsonProperty("subCategories") List<SubCategory> subCategories) {
         this.name = name;
         this.subCategories = new ArrayList<>(subCategories);
     }
 
+    @JsonIgnore
     public double getTotalAmount() {
         double totalAmount = 0;
         for (SubCategory subCategory : subCategories) {
