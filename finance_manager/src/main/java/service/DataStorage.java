@@ -13,7 +13,6 @@ public class DataStorage {
 
 
     public DataStorage() {
-        // Enable pretty printing
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT); //für schöneres format im JSON file
     }
 
