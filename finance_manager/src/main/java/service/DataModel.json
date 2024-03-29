@@ -1,0 +1,48 @@
+{
+  "investments" : {
+    "name" : "Investments",
+    "subCategories" : [ {
+      "subName" : "Immobilien",
+      "amount" : 120000.0
+    }, {
+      "subName" : "Gold",
+      "amount" : 4300.0
+    }, {
+      "subName" : "iwas",
+      "amount" : 0.0
+    }, {
+      "subName" : "sdds",
+      "amount" : 0.0
+    } ]
+  },
+  "income" : {
+    "name" : "Income",
+    "subCategories" : [ {
+      "subName" : "iT",
+      "amount" : 600.0
+    }, {
+      "subName" : "LP",
+      "amount" : 900.0
+    }, {
+      "subName" : "Yo",
+      "amount" : 3443.0
+    }, {
+      "subName" : "fdf",
+      "amount" : 0.0
+    } ]
+  },
+  "costs" : {
+    "name" : "Fixcosts per year",
+    "subCategories" : [ {
+      "subName" : "Miete",
+      "amount" : 800.0
+    } ]
+  },
+  "savings" : {
+    "name" : "Savings",
+    "subCategories" : [ {
+      "subName" : "Cash",
+      "amount" : 7330.0
+    } ]
+  }
+}
