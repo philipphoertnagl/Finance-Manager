@@ -58,7 +58,7 @@ public class SubCategory {
     @Override
     public String toString() {
         // Use getSubName() and getAmount() which return the actual values, not the Properties
-        return getSubName() + ": $" + getAmount();
+        return getSubName() + ": $" + getAmount(); //for gettin the String value not String Property
     }
 
 }
