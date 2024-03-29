@@ -8,11 +8,8 @@
       "subName" : "Gold",
       "amount" : 4300.0
     }, {
-      "subName" : "iwas",
-      "amount" : 0.0
-    }, {
-      "subName" : "sdds",
-      "amount" : 0.0
+      "subName" : "Bitcoin",
+      "amount" : 1500.0
     } ]
   },
   "income" : {
@@ -24,11 +21,8 @@
       "subName" : "LP",
       "amount" : 900.0
     }, {
-      "subName" : "Yo",
-      "amount" : 3443.0
-    }, {
-      "subName" : "fdf",
-      "amount" : 0.0
+      "subName" : "Gehalt",
+      "amount" : 1500.0
     } ]
   },
   "costs" : {
@@ -36,13 +30,16 @@
     "subCategories" : [ {
       "subName" : "Miete",
       "amount" : 800.0
+    }, {
+      "subName" : "Abonnoments Internet",
+      "amount" : 430.0
     } ]
   },
   "savings" : {
     "name" : "Savings",
     "subCategories" : [ {
       "subName" : "Cash",
-      "amount" : 7330.0
+      "amount" : 5200.0
     } ]
   }
 }
