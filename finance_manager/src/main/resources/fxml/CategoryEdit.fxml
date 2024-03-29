@@ -12,6 +12,7 @@
                <Button fx:id="buttonAdd" onAction="#handleAddButtonAction" text="Add" />
                <Button fx:id="buttonDelete" onAction="#handleDeleteButtonAction" text="Delete" />
                <Button fx:id="buttonSave" onAction="#handleSaveAction" text="Save" />
+            <Button fx:id="switchMenu" onAction="#switchToMain" mnemonicParsing="false" prefHeight="24.0" prefWidth="197.0" text="Back to Main Menu" />
            </items>
        </ToolBar>
        <ComboBox fx:id="categoryComboBox" layoutX="14.0" layoutY="43.0" onAction="#onCategoryChanged" prefHeight="24.0" prefWidth="171.0" />

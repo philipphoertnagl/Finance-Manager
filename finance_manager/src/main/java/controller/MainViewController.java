@@ -1,13 +1,20 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.CheckBox;
 import javafx.collections.FXCollections;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
+import javafx.event.ActionEvent;
 import model.DataModel;
 import model.SubCategory;
 
+import java.io.IOException;
 import java.util.stream.Collectors;
 
 public class MainViewController {
@@ -100,5 +107,24 @@ public class MainViewController {
 
         labelSumSelected.setText(String.format("Sum of selected categories: $%.2f", total));
     }
+
+    @FXML
+    protected void handleEditAction(ActionEvent event) throws IOException {
+        Node source = (Node) event.getSource();
+        String id = source.getId(); // This is the fx:id of the button
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/CategoryEdit.fxml"));
+        Parent root = loader.load();
+
+        CategoryEditController editController = loader.getController();
+        System.out.println("Button ID: " + id);
+        editController.setCategoryBasedOnId(id); // A method you'll define in CategoryEditController
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+
 
 }

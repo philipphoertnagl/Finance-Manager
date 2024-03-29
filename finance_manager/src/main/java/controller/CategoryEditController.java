@@ -3,8 +3,13 @@ package controller;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.stage.Stage;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.NumberStringConverter;
 import model.Category;
@@ -57,8 +62,7 @@ public class CategoryEditController {
             // File doesn't exist or is empty, use hardcoded data
             initializeDataModelWithHardcodedData();
         }
-
-        setupInitialView();
+        setupUI();
     }
 
     private void initializeDataModelWithHardcodedData() {
@@ -67,16 +71,18 @@ public class CategoryEditController {
         System.out.println("DataModel initialized with hardcoded data.");
     }
 
-    private void setupInitialView() {
-        // Common setup steps that need to be executed regardless of data loading method
-        labelCategoryName.setText(dataModel.getInvestments().getName());
+    private void setupUI() {
         tableviewCategory.setEditable(true);
-        List<SubCategory> existingSubcategories = dataModel.getInvestments().getSubCategories();
-        tableviewCategory.setItems(FXCollections.observableArrayList(existingSubcategories));
         categoryComboBox.getItems().addAll("Investments", "Income", "Costs", "Savings");
-        categoryComboBox.getSelectionModel().selectFirst();
-        updateCurrentCategory();
         setupTableColumns();
+    }
+
+    private void updateCategoryUI() {
+        if (currentCategory != null) {
+            labelCategoryName.setText(currentCategory.getName());
+            List<SubCategory> subcategories = currentCategory.getSubCategories();
+            tableviewCategory.setItems(FXCollections.observableArrayList(subcategories));
+        }
     }
 
 
@@ -152,6 +158,7 @@ public class CategoryEditController {
                     currentCategory = dataModel.getSavings();
                     break;
             }
+            labelCategoryName.setText(currentCategory.getName()); // Update the label text
         }
 
         // Load subcategories for the selected category into the TableView
@@ -165,5 +172,32 @@ public class CategoryEditController {
         }
     }
 
+    public void setCategoryBasedOnId(String categoryId) {
+        System.out.println("Setting category based on ID: " + categoryId);
+        switch (categoryId) {
+            case "editInvestments":
+                currentCategory = dataModel.getInvestments();
+                break;
+            case "editIncome":
+                currentCategory = dataModel.getIncome();
+                break;
+            case "editCosts":
+                currentCategory = dataModel.getCosts();
+                break;
+            case "editSavings":
+                currentCategory = dataModel.getSavings();
+                break;
+        }
+        updateCategoryUI(); // Assuming this method sets up the view based on currentCategory
+    }
+
+    @FXML
+    private void switchToMain(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MainView.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 
 }
