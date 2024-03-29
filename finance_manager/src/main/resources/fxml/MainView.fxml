@@ -7,33 +7,33 @@
    <children>
       <VBox layoutX="311.0" layoutY="266.0" prefHeight="120.0" prefWidth="275.0" style="-fx-background-color: #F5DEB3;">
          <children>
-            <CheckBox fx:id="checkboxSavings" onAction="#updateSelectedTotal" mnemonicParsing="false" prefHeight="18.0" prefWidth="231.0" text="Savings">
+            <CheckBox fx:id="checkboxSavings" mnemonicParsing="false" onAction="#updateSelectedTotal" prefHeight="18.0" prefWidth="231.0" text="Savings">
                <graphic>
-                  <Button mnemonicParsing="false" text="edit" />
+                  <Button fx:id="editSavings" mnemonicParsing="false" onAction="#handleEditAction" text="edit"  />
                </graphic></CheckBox>
             <ListView id="savingsListView" fx:id="savingsListView" prefHeight="96.0" prefWidth="268.0" />
          </children></VBox>
       <VBox layoutX="14.0" layoutY="126.0" prefHeight="120.0" prefWidth="275.0" style="-fx-background-color: #F5DEB3;">
          <children>
-            <CheckBox fx:id="checkboxIncome" onAction="#updateSelectedTotal" mnemonicParsing="false" prefHeight="18.0" prefWidth="231.0" text="Income">
+            <CheckBox fx:id="checkboxIncome" mnemonicParsing="false" onAction="#updateSelectedTotal" prefHeight="18.0" prefWidth="231.0" text="Income">
                <graphic>
-                  <Button mnemonicParsing="false" text="edit" />
+                  <Button fx:id="editIncome" mnemonicParsing="false" onAction="#handleEditAction" text="edit"/>
                </graphic></CheckBox>
             <ListView id="incomeListView" fx:id="incomeListView" prefHeight="200.0" prefWidth="200.0" />
          </children></VBox>
       <VBox layoutX="311.0" layoutY="126.0" prefHeight="120.0" prefWidth="275.0" style="-fx-background-color: #F5DEB3;">
          <children>
-            <CheckBox fx:id="checkboxInvestments" onAction="#updateSelectedTotal" mnemonicParsing="false" prefHeight="18.0" prefWidth="231.0" text="Investments">
+            <CheckBox fx:id="checkboxInvestments" mnemonicParsing="false" onAction="#updateSelectedTotal" prefHeight="18.0" prefWidth="231.0" text="Investments">
                <graphic>
-                  <Button mnemonicParsing="false" text="edit" />
+                  <Button fx:id="editInvestments" mnemonicParsing="false" onAction="#handleEditAction" text="edit"  />
                </graphic></CheckBox>
             <ListView id="investmentsListView" fx:id="investmentsListView" prefHeight="102.0" prefWidth="275.0" />
          </children></VBox>
       <VBox layoutX="14.0" layoutY="266.0" prefHeight="120.0" prefWidth="275.0" style="-fx-background-color: #F5DEB3;">
          <children>
-            <CheckBox fx:id="checkboxCosts" onAction="#updateSelectedTotal" mnemonicParsing="false" prefHeight="18.0" prefWidth="231.0" text="Costs">
+            <CheckBox fx:id="checkboxCosts" mnemonicParsing="false" onAction="#updateSelectedTotal" prefHeight="18.0" prefWidth="231.0" text="Costs">
                <graphic>
-                  <Button mnemonicParsing="false" text="edit" />
+                  <Button fx:id="editCosts" mnemonicParsing="false" onAction="#handleEditAction" text="edit" />
                </graphic></CheckBox>
             <ListView id="costsListView" fx:id="costsListView" prefHeight="200.0" prefWidth="200.0" />
          </children></VBox>

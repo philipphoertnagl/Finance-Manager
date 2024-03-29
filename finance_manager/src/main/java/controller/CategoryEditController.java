@@ -165,5 +165,23 @@ public class CategoryEditController {
         }
     }
 
+    public void setCategoryBasedOnId(String categoryId) {
+        switch (categoryId) {
+            case "editInvestments":
+                currentCategory = dataModel.getInvestments();
+                break;
+            case "editIncome":
+                currentCategory = dataModel.getIncome();
+                break;
+            case "editCosts":
+                currentCategory = dataModel.getCosts();
+                break;
+            case "editSavings":
+                currentCategory = dataModel.getSavings();
+                break;
+        }
+        updateCurrentCategory(); // Assuming this method sets up the view based on currentCategory
+    }
+
 
 }
