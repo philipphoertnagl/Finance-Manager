@@ -3,8 +3,13 @@ package controller;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.stage.Stage;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.NumberStringConverter;
 import model.Category;
@@ -57,7 +62,6 @@ public class CategoryEditController {
             // File doesn't exist or is empty, use hardcoded data
             initializeDataModelWithHardcodedData();
         }
-
         setupUI();
     }
 
@@ -187,5 +191,13 @@ public class CategoryEditController {
         updateCategoryUI(); // Assuming this method sets up the view based on currentCategory
     }
 
+    @FXML
+    private void switchToMain(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MainView.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 
 }
