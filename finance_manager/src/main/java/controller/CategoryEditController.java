@@ -152,6 +152,7 @@ public class CategoryEditController {
                     currentCategory = dataModel.getSavings();
                     break;
             }
+            labelCategoryName.setText(currentCategory.getName()); // Update the label text
         }
 
         // Load subcategories for the selected category into the TableView
