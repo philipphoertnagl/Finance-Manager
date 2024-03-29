@@ -64,7 +64,7 @@ public class MainViewController {
                 }
                 System.out.println("DataModel loaded from file.");
             } catch (IOException e) {
-                e.printStackTrace();
+                e.printStackTrace(); //TODO vlt exception handling wenn kein JSON file gefunden/geladen
             }
         }
 
@@ -141,7 +141,6 @@ public class MainViewController {
         stage.setScene(new Scene(root));
         stage.show();
     }
-
 
 
 }

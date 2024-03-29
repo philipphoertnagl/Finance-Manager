@@ -192,7 +192,9 @@ public class CategoryEditController {
     }
 
     @FXML
-    private void switchToMain(ActionEvent event) throws IOException{
+    private void switchToMain(ActionEvent event) throws IOException {
+        String filePath = "src/main/java/service/DataModel.json"; // Define how you get or set this path
+        dataStorage.saveDataModel(dataModel, filePath);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MainView.fxml"));
         Parent root = loader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
