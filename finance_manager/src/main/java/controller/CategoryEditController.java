@@ -58,7 +58,7 @@ public class CategoryEditController {
             initializeDataModelWithHardcodedData();
         }
 
-        setupInitialView();
+        setupUI();
     }
 
     private void initializeDataModelWithHardcodedData() {
@@ -67,16 +67,18 @@ public class CategoryEditController {
         System.out.println("DataModel initialized with hardcoded data.");
     }
 
-    private void setupInitialView() {
-        // Common setup steps that need to be executed regardless of data loading method
-        labelCategoryName.setText(dataModel.getInvestments().getName());
+    private void setupUI() {
         tableviewCategory.setEditable(true);
-        List<SubCategory> existingSubcategories = dataModel.getInvestments().getSubCategories();
-        tableviewCategory.setItems(FXCollections.observableArrayList(existingSubcategories));
         categoryComboBox.getItems().addAll("Investments", "Income", "Costs", "Savings");
-        categoryComboBox.getSelectionModel().selectFirst();
-        updateCurrentCategory();
         setupTableColumns();
+    }
+
+    private void updateCategoryUI() {
+        if (currentCategory != null) {
+            labelCategoryName.setText(currentCategory.getName());
+            List<SubCategory> subcategories = currentCategory.getSubCategories();
+            tableviewCategory.setItems(FXCollections.observableArrayList(subcategories));
+        }
     }
 
 
@@ -167,6 +169,7 @@ public class CategoryEditController {
     }
 
     public void setCategoryBasedOnId(String categoryId) {
+        System.out.println("Setting category based on ID: " + categoryId);
         switch (categoryId) {
             case "editInvestments":
                 currentCategory = dataModel.getInvestments();
@@ -181,7 +184,7 @@ public class CategoryEditController {
                 currentCategory = dataModel.getSavings();
                 break;
         }
-        updateCurrentCategory(); // Assuming this method sets up the view based on currentCategory
+        updateCategoryUI(); // Assuming this method sets up the view based on currentCategory
     }
 
 

@@ -117,6 +117,7 @@ public class MainViewController {
         Parent root = loader.load();
 
         CategoryEditController editController = loader.getController();
+        System.out.println("Button ID: " + id);
         editController.setCategoryBasedOnId(id); // A method you'll define in CategoryEditController
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
