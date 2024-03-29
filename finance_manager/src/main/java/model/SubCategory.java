@@ -57,7 +57,8 @@ public class SubCategory {
 
     @Override
     public String toString() {
-        // Customize this method to output what you want to show in the ListView
-        return subName + ": $" + getAmount();
+        // Use getSubName() and getAmount() which return the actual values, not the Properties
+        return getSubName() + ": $" + getAmount();
     }
+
 }
