@@ -1,3 +1,4 @@
--in feature/SaveDataToJSON : handle SAVE button
-- weiter
-- SQL einbringen
+wenn programm erste mal ausgeführt --> leeres datenblatt hardcoded
+wenn nicht geladen werden kann --> error Handling
+
+SpringBoot einführung für Spring Data (database anbindung)
