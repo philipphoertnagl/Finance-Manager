@@ -1,3 +1,7 @@
+ToDo:
+
+Datum adden wenn neue transaktion angelegt (oder geändert)
+
 wenn programm erste mal ausgeführt --> leeres datenblatt hardcoded
 wenn nicht geladen werden kann --> error Handling
 
