@@ -14,7 +14,7 @@
             <Button fx:id="switchMenu" mnemonicParsing="false" onAction="#switchToMain" prefHeight="24.0" prefWidth="197.0" text="Back to Main Menu" />
            </items>
        </ToolBar>
-       <Label fx:id="labelCategoryName" layoutX="167.0" layoutY="28.0" prefHeight="54.0" prefWidth="350.0" text="Subcategory_Name" textFill="#1cb217">
+       <Label fx:id="labelSubcategoryName" layoutX="167.0" layoutY="28.0" prefHeight="54.0" prefWidth="350.0" text="Subcategory_Name" textFill="#1cb217">
          <font>
             <Font size="25.0" />
          </font>
