@@ -9,9 +9,9 @@
        <ToolBar fx:id="toolBar" layoutX="0" layoutY="0" prefHeight="40.0" prefWidth="800.0">
            <items>
                <Button fx:id="buttonAdd" onAction="#handleAddButtonAction" text="Add" />
-               <Button fx:id="buttonDelete" onAction="#handleDeleteButtonAction" text="Delete" />
+             <!--  <Button fx:id="buttonDelete" onAction="#handleDeleteButtonAction" text="Delete" />
                <Button fx:id="buttonSave" onAction="#handleSaveAction" text="Save" />
-            <Button fx:id="switchMenu" mnemonicParsing="false" onAction="#switchToMain" prefHeight="24.0" prefWidth="197.0" text="Back to Main Menu" />
+            <Button fx:id="switchMenu" mnemonicParsing="false" onAction="#switchToMain" prefHeight="24.0" prefWidth="197.0" text="Back to Main Menu" />-->
            </items>
        </ToolBar>
        <Label fx:id="labelSubcategoryName" layoutX="167.0" layoutY="28.0" prefHeight="54.0" prefWidth="350.0" text="Subcategory_Name" textFill="#1cb217">
