@@ -27,7 +27,7 @@ import java.util.List;
 
 
 public class CategoryEditController {
-    private DataModel dataModel = new DataModel();
+    private DataModel dataModel = DataModel.getInstance();
     private DataStorage dataStorage = new DataStorage();
 
     @FXML
@@ -66,7 +66,7 @@ public class CategoryEditController {
     }
 
     private void initializeDataModelWithHardcodedData() {
-        dataModel = new DataModel();
+        dataModel = DataModel.getInstance();
         dataModel.loadData();
         System.out.println("DataModel initialized with hardcoded data.");
     }

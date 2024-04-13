@@ -3,10 +3,23 @@ package model;
 import java.util.Arrays;
 
 public class DataModel {
+
+    private static DataModel instance;
+
     private Category investments;
     private Category income;
     private Category costs;
     private Category savings;
+
+    private DataModel() {
+    }
+
+    public static DataModel getInstance() {
+        if (instance == null) {
+            instance = new DataModel();
+        }
+        return instance;
+    }
 
     public void addSubCategory(Category category, SubCategory subCategory) {
         if (category == investments) {

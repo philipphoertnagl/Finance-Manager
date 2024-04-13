@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.util.stream.Collectors;
 
 public class MainViewController {
-    private DataModel dataModel = new DataModel();
+    private DataModel dataModel = DataModel.getInstance();
     private DataStorage dataStorage = new DataStorage();
 
     //ListView objects

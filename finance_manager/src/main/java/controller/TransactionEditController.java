@@ -16,7 +16,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class TransactionEditController {
-    private DataModel dataModel = new DataModel();
+    private DataModel dataModel = DataModel.getInstance();
     private SubCategory subCategory;
     private DataStorage dataStorage = new DataStorage();
 
