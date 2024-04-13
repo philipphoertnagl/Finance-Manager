@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 public class MainViewController {
     private DataModel dataModel = new DataModel();
-    private DataStorage dataStorage = new DataStorage();
+
 
     //ListView objects
     @FXML
@@ -52,21 +52,6 @@ public class MainViewController {
     private Label labelSumSelected;
 
     public void initialize() {
-        String filePath = "src/main/java/service/DataModel.json"; // This could also be dynamically determined
-        File file = new File(filePath);
-
-        if(file.exists() && file.length() > 0) {
-            // Attempt to load existing data from the file
-            try {
-                dataModel = dataStorage.loadDataModel(filePath);
-                if (dataModel == null) {
-                    throw new IOException("Failed to load data model from file.");
-                }
-                System.out.println("DataModel loaded from file.");
-            } catch (IOException e) {
-                e.printStackTrace(); //TODO vlt exception handling wenn kein JSON file gefunden/geladen
-            }
-        }
 
         //Sum on TOp Calculations:
         double sumInvestmentsSavings = dataModel.getInvestments().getTotalAmount() + dataModel.getSavings().getTotalAmount();
