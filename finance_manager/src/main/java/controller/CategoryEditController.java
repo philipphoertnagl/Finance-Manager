@@ -47,25 +47,6 @@ public class CategoryEditController {
     private Category currentCategory;
 
     public void initialize() {
-        String filePath = "src/main/java/service/DataModel.json"; // This could also be dynamically determined
-        File file = new File(filePath);
-
-        if(file.exists() && file.length() > 0) {
-            // Attempt to load existing data from the file
-            try {
-                dataModel = dataStorage.loadDataModel(filePath);
-                if (dataModel == null) {
-                    throw new IOException("Failed to load data model from file.");
-                }
-                System.out.println("DataModel loaded from file.");
-            } catch (IOException e) {
-                e.printStackTrace();
-                initializeDataModelWithHardcodedData();
-            }
-        } else {
-            // File doesn't exist or is empty, use hardcoded data
-            initializeDataModelWithHardcodedData();
-        }
         setupUI();
     }
 
@@ -79,6 +60,7 @@ public class CategoryEditController {
         tableviewCategory.setEditable(true);
         categoryComboBox.getItems().addAll("Investments", "Income", "Costs", "Savings");
         setupTableColumns();
+        updateCategoryUI();
     }
 
     private void updateCategoryUI() {
@@ -200,13 +182,26 @@ public class CategoryEditController {
 
     @FXML
     private void switchToMain(ActionEvent event) throws IOException {
-        String filePath = "src/main/java/service/DataModel.json"; // Define how you get or set this path
-        dataStorage.saveDataModel(dataModel, filePath);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MainView.fxml"));
-        Parent root = loader.load();
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        try {
+            String filePath = "src/main/java/service/DataModel.json";
+            System.out.println("Saving data model...");
+            dataStorage.saveDataModel(dataModel, filePath);
+        } catch (Exception e) {
+            e.printStackTrace();  // To catch and identify any exceptions during save
+        }
+
+        try {
+            System.out.println("Loading Main View...");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MainView.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+            System.out.println("Main View loaded successfully.");
+        } catch (Exception e) {
+            e.printStackTrace();  // To catch and identify any exceptions during view switching
+        }
     }
+
 
 }

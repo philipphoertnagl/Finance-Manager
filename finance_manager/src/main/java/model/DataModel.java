@@ -1,5 +1,9 @@
 package model;
 
+import service.DataStorage;
+
+import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class DataModel {
@@ -7,6 +11,48 @@ public class DataModel {
     private Category income;
     private Category costs;
     private Category savings;
+    private DataStorage dataStorage = new DataStorage();
+    private String filePath = "src/main/java/service/DataModel.json";
+    private boolean isInitialized = false;
+    private void initializeData() {
+        if (!isInitialized) {
+            System.out.println("Initializing data...");
+            File file = new File(filePath);
+            if (file.exists() && file.length() > 0) {
+                try {
+                    System.out.println("Loading model from file...");
+                    DataModel loadedModel = dataStorage.loadDataModel(filePath);
+                    if (loadedModel != null) {
+                        this.investments = loadedModel.getInvestments();
+                        this.income = loadedModel.getIncome();
+                        this.costs = loadedModel.getCosts();
+                        this.savings = loadedModel.getSavings();
+                        System.out.println("Model loaded successfully.");
+                    } else {
+                        System.out.println("Loaded model is null, initializing empty categories.");
+                        initializeEmptyCategories();
+                    }
+                } catch (Exception e) {
+                    System.out.println("Failed to load model, initializing empty categories.");
+                    e.printStackTrace();
+                    initializeEmptyCategories();
+                }
+            } else {
+                System.out.println("No existing data file, initializing empty categories.");
+                initializeEmptyCategories();
+            }
+            isInitialized = true;
+        }
+    }
+
+
+
+    private void initializeEmptyCategories() {
+        investments = new Category("Investments", new ArrayList<>());
+        income = new Category("Income", new ArrayList<>());
+        costs = new Category("Costs", new ArrayList<>());
+        savings = new Category("Savings", new ArrayList<>());
+    }
 
     public void addSubCategory(Category category, SubCategory subCategory) {
         if (category == investments) {
@@ -34,7 +80,7 @@ public class DataModel {
 
 
     public void loadData() {
-        //Investments subcateogires
+      /*  //Investments subcateogires
         SubCategory immobilien = new SubCategory("Immobilien");
         SubCategory gold = new SubCategory("Gold");
         SubCategory fonds = new SubCategory("Aktien/Fonds");
@@ -83,7 +129,7 @@ public class DataModel {
         energie.addTransaction(new Transaction(150));
         abos.addTransaction(new Transaction(32));
 
-        costs = new Category("Fixcosts per year", Arrays.asList(miete, energie, abos));
+        costs = new Category("Fixcosts per year", Arrays.asList(miete, energie, abos));*/
 
 
 
@@ -91,18 +137,30 @@ public class DataModel {
     }
 
     public Category getInvestments() {
+        if (investments == null) {
+            initializeData();  // Consider re-initializing or handle this more gracefully
+        }
         return investments;
     }
 
     public Category getIncome() {
+        if (income == null) {
+            initializeData();  // Consider re-initializing or handle this more gracefully
+        }
         return income;
     }
 
     public Category getCosts() {
+        if (costs == null) {
+            initializeData();  // Consider re-initializing or handle this more gracefully
+        }
         return costs;
     }
 
     public Category getSavings() {
+        if (savings == null) {
+            initializeData();  // Consider re-initializing or handle this more gracefully
+        }
         return savings;
     }
 
