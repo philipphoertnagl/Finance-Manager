@@ -2,30 +2,38 @@ package model;
 
 import javafx.beans.property.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Transaction {
 
     private DoubleProperty amount;
-    private ObjectProperty<LocalDateTime> date;
+    private ObjectProperty<LocalDate> date;
     private StringProperty name;
 
 
-    public Transaction(double amount) {
-        this.amount = new SimpleDoubleProperty(amount);
-        this.date = new SimpleObjectProperty<>(LocalDateTime.now());
-    }
 
     public Transaction(String name) {
         this.name = new SimpleStringProperty(name);
         this.amount = new SimpleDoubleProperty(0);
-        this.date = new SimpleObjectProperty<>(LocalDateTime.now());
+        this.date = new SimpleObjectProperty<>(LocalDate.now());
     }
+
+    public Transaction(double amount) {
+        this.name = new SimpleStringProperty();
+        this.amount = new SimpleDoubleProperty(amount);
+        this.date = new SimpleObjectProperty<>(LocalDate.now());
+    }
+
 
 
     public Transaction() {
-
+        this.name = new SimpleStringProperty();
+        this.amount = new SimpleDoubleProperty();
+        this.date = new SimpleObjectProperty<>(LocalDate.now());
     }
+
+
 
     public double getAmount() {
         return amount.get();
@@ -45,15 +53,15 @@ public class Transaction {
         this.amount.set(amount);
     }
 
-    public LocalDateTime getDate() {
+    public LocalDate getDate() {
         return date.get();
     }
 
-    public ObjectProperty<LocalDateTime> dateProperty() {
+    public ObjectProperty<LocalDate> dateProperty() {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(LocalDate date) {
         this.date.set(date);
     }
 

@@ -21,9 +21,9 @@
       </Label>
       <TableView fx:id="tableviewCategory" layoutX="14.0" layoutY="74.0" prefHeight="450.0" prefWidth="762.0">
          <columns>
-            <TableColumn fx:id="tableColumnTransaction" prefWidth="350.0" text="Transaction" />
-            <TableColumn fx:id="tableColumnDate" prefWidth="120.0" text="Date" />
-            <TableColumn fx:id="tableColumnAmount" prefWidth="300.0" text="Amount" />
+            <TableColumn fx:id="tableColumnTransaction" prefWidth="300.0" text="Transaction" />
+            <TableColumn fx:id="tableColumnDate" prefWidth="160.0" text="Date" />
+            <TableColumn fx:id="tableColumnAmount" prefWidth="270.0" text="Amount" />
          </columns>
       </TableView>
    </children>

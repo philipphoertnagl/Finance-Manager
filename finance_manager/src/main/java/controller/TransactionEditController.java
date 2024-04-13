@@ -10,6 +10,7 @@ import model.DataModel;
 import model.Transaction;
 import model.SubCategory;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class TransactionEditController {
@@ -44,7 +45,7 @@ public class TransactionEditController {
         tableColumnAmount.setOnEditCommit(event -> {
             Transaction transaction = event.getRowValue();
             transaction.setAmount(event.getNewValue().doubleValue());
-            transaction.setDate(LocalDateTime.now());  // Set the current date when the amount is edited
+            transaction.setDate(LocalDate.now());  // Set the current date when the amount is edited
         });
 
         tableColumnDate.setCellValueFactory(cellData -> cellData.getValue().dateProperty().asString());
@@ -57,7 +58,7 @@ public class TransactionEditController {
     @FXML
     private void handleAddButtonAction(ActionEvent event) {
         Transaction newTransaction = new Transaction(0); // Start with an amount of 0
-        newTransaction.setDate(LocalDateTime.now());  // Set the current date when adding a new transaction
+        newTransaction.setDate(LocalDate.now());  // Set the current date when adding a new transaction
         tableviewCategory.getItems().add(newTransaction);
         subCategory.addTransaction(newTransaction);
 
