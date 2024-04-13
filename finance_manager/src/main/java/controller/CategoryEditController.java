@@ -97,12 +97,14 @@ public class CategoryEditController {
         tablecolumnSubcategory.setOnEditCommit(event -> {
             SubCategory subCategory = event.getRowValue();
             subCategory.setSubName(event.getNewValue());
+            subCategory.setDate(LocalDate.now());
         });
 
         tablecolumnAmount.setCellFactory(TextFieldTableCell.forTableColumn(new NumberStringConverter()));
         tablecolumnAmount.setOnEditCommit(event -> {
             SubCategory subCategory = event.getRowValue();
             subCategory.setAmount(event.getNewValue().doubleValue());
+            subCategory.setDate(LocalDate.now());
         });
 
         tableviewCategory.setEditable(true);
