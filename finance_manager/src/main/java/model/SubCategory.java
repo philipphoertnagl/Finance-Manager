@@ -1,21 +1,22 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+
+import javafx.beans.property.*;
 
 public class SubCategory {
     private StringProperty subName;
     private DoubleProperty amount;
     private List<Transaction> transactions;
+    private ObjectProperty<LocalDate> date;
 
     public SubCategory(String name) {
         this.subName = new SimpleStringProperty(name);
         this.amount = new SimpleDoubleProperty(0);
         this.transactions = new ArrayList<>();
+        this.date = new SimpleObjectProperty<>(LocalDate.now());
     }
 
     public SubCategory() {
@@ -23,6 +24,7 @@ public class SubCategory {
         this.subName = new SimpleStringProperty();
         this.amount = new SimpleDoubleProperty(0);
         this.transactions = new ArrayList<>();
+        this.date = new SimpleObjectProperty<>(LocalDate.now());
     }
 
     public void addTransaction(Transaction transaction) {
@@ -54,6 +56,18 @@ public class SubCategory {
         this.amount.set(amount);
     }
 
+
+    public LocalDate getDate() {
+        return date.get();
+    }
+
+    public ObjectProperty<LocalDate> dateProperty() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date.set(date);
+    }
 
     @Override
     public String toString() {

@@ -23,7 +23,12 @@
       </Label>
       <TableView fx:id="tableviewCategory" layoutX="14.0" layoutY="74.0" prefHeight="450.0" prefWidth="762.0">
         <columns>
-            <TableColumn fx:id="tablecolumnSubcategory" prefWidth="493.0" text="Subcategory">
+            <TableColumn fx:id="tablecolumnDate" prefWidth="105.0" text="Date">
+                <cellValueFactory>
+                    <PropertyValueFactory property="date" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="tablecolumnSubcategory" prefWidth="390.0" text="Subcategory">
                 <cellValueFactory>
                     <PropertyValueFactory property="subName" />
                 </cellValueFactory>

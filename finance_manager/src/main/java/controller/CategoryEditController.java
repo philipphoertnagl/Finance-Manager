@@ -19,10 +19,12 @@ import model.SubCategory;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.Label;
+import model.Transaction;
 import service.DataStorage;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -36,6 +38,8 @@ public class CategoryEditController {
     private TableColumn<SubCategory, String> tablecolumnSubcategory;
     @FXML
     private TableColumn<SubCategory, Number> tablecolumnAmount;
+    @FXML
+    private TableColumn<SubCategory, String> tablecolumnDate;
     @FXML
     private Label labelCategoryName;
     @FXML
@@ -107,6 +111,7 @@ public class CategoryEditController {
     @FXML
     private void handleAddButtonAction(ActionEvent event) {
         SubCategory newSubCategory = new SubCategory(""); // Create a new subcategory with an empty name
+        newSubCategory.setDate(LocalDate.now());
         tableviewCategory.getItems().add(newSubCategory); // Add it to the TableView
         dataModel.addSubCategory(currentCategory, newSubCategory);
 

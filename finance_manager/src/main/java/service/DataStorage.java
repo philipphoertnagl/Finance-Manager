@@ -2,6 +2,7 @@ package service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import model.DataModel;
 
 import java.io.File;
@@ -12,6 +13,9 @@ public class DataStorage {
     private ObjectMapper objectMapper = new ObjectMapper();
 
     public DataStorage() {
+        objectMapper.registerModule(new JavaTimeModule());
+        // Disable writing dates as timestamps
+        objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         // Enable pretty printing
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
     }
