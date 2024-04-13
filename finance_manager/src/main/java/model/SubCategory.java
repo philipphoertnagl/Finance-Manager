@@ -30,6 +30,11 @@ public class SubCategory {
         this.amount.set(this.amount.get() + transaction.getAmount());
     }
 
+    public void removeTransaction(Transaction transaction) {
+        transactions.remove(transaction);
+        this.amount.set(this.amount.get() - transaction.getAmount());
+    }
+
     public double getAmount() {
         return amount.get();
     }

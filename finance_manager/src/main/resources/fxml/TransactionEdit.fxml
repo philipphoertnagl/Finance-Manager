@@ -9,9 +9,9 @@
        <ToolBar fx:id="toolBar" layoutX="0" layoutY="0" prefHeight="40.0" prefWidth="800.0">
            <items>
                <Button fx:id="buttonAdd" onAction="#handleAddButtonAction" text="Add" />
-             <!--  <Button fx:id="buttonDelete" onAction="#handleDeleteButtonAction" text="Delete" />
-               <Button fx:id="buttonSave" onAction="#handleSaveAction" text="Save" />
-            <Button fx:id="switchMenu" mnemonicParsing="false" onAction="#switchToMain" prefHeight="24.0" prefWidth="197.0" text="Back to Main Menu" />-->
+              <Button fx:id="buttonDelete" onAction="#handleDeleteButtonAction" text="Delete" />
+           <Button fx:id="buttonSave" onAction="#handleSaveAction" text="Save" />
+               <!--   <Button fx:id="switchMenu" mnemonicParsing="false" onAction="#switchToMain" prefHeight="24.0" prefWidth="197.0" text="Back to Main Menu" />-->
            </items>
        </ToolBar>
        <Label fx:id="labelSubcategoryName" layoutX="167.0" layoutY="28.0" prefHeight="54.0" prefWidth="350.0" text="Subcategory_Name" textFill="#1cb217">
@@ -21,9 +21,9 @@
       </Label>
       <TableView fx:id="tableviewCategory" layoutX="14.0" layoutY="74.0" prefHeight="450.0" prefWidth="762.0">
          <columns>
-            <TableColumn fx:id="tableColumnTransaction" prefWidth="300.0" text="Transaction" />
-            <TableColumn fx:id="tableColumnDate" prefWidth="160.0" text="Date" />
-            <TableColumn fx:id="tableColumnAmount" prefWidth="270.0" text="Amount" />
+            <TableColumn fx:id="tableColumnTransaction" prefWidth="380.0" text="Transaction" />
+            <TableColumn fx:id="tableColumnDate" prefWidth="105.0" text="Date" />
+            <TableColumn fx:id="tableColumnAmount" prefWidth="280.0" text="Amount" />
          </columns>
       </TableView>
    </children>
